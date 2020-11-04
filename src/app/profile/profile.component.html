@@ -1,0 +1,55 @@
+<div class="container" *ngIf="currentUser; else loggedOut">
+  <header class="jumbotron">
+    <h3>
+      <strong>{{ currentUser.username }}</strong> Profile
+    </h3>
+  </header>
+  <form [formGroup]="myform">
+  <div class="form-group">
+    <label for="username">Name</label>
+    <input type="text" class="form-control" name="name" formControlName="name"
+      />
+  <label for="username">Username</label>
+  <input type="text" class="form-control" name="username" id="username" formControlName="username" readonly
+  />
+  <label for="gender">Gender</label>
+  <input type="text" class="form-control" name="gender" id="gender" formControlName="gender" readonly
+  />
+  <label for="contactNumber">Primary Contact number</label>
+  <input type="text" class="form-control" name="contactNumber" formControlName="contactNumber" readonly
+   />
+<div class="form-group">
+<label for="email">Primary EmailId</label>
+<input
+  type="email"
+  class="form-control"
+  name="email"
+  formControlName="email"
+  readonly
+/>
+
+</div>
+<label for="address">Address</label>
+  <input type="text" class="form-control" name="address" formControlName="address"
+ />
+<div class="form-group">
+<label for="password">Secondary Contact Number</label>
+<input
+  type="text"
+  class="form-control"
+  name="secondaryContactNumber"
+  formControlName="secondaryContactNumber"
+/>
+
+</div>
+<label for="username">Secondary EmailId</label>
+  <input type="text" class="form-control" name="secondaryEmailId" formControlName="secondaryEmailId"
+   />
+<div class="form-group">
+<button class="btn btn-primary btn-block" (click)="update()">Update</button>
+</div>
+</div>
+</form>
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

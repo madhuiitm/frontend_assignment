@@ -1,0 +1,17 @@
+<li *ngFor="let item of userList; let i = index">
+    {{item.username}}
+    <div class="col-md-2">
+
+        <input type="radio" name="1" id="1" [checked]="item.approved==1" 
+        (ngModelChange)="RadioCheck(i)" [value]="true"/>
+
+
+    <label for="1">Approve</label>
+  
+    <input type="radio"  name="1" id="2" [checked]="item.removed==1" 
+    (ngModelChange)="RadioCheck(i)" name="radiogroup" [value]="false"/>
+    <label for="2">Remove</label>
+   
+</div>
+</li>
+<button (click)='submit()'>submit</button>

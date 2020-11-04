@@ -1,0 +1,69 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form
+      *ngIf="!isSuccessful"
+      [formGroup]="myform"
+      (ngSubmit)="onSubmit()"
+      novalidate
+    >
+      <div class="form-group">
+          <label for="username">Name</label>
+          <input type="text" class="form-control" name="name" formControlName="name"
+            />
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="username" id="username" formControlName="username"
+        />
+        <label for="username">Gender</label>
+        <input type="text" class="form-control" name="gender" id="gender" formControlName="gender"
+        />
+      </div>
+      <label for="contactNumber">Contact number</label>
+          <input type="text" class="form-control" name="contactNumber" formControlName="contactNumber"
+           />
+      <div class="form-group">
+        <label for="email">EmailId</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          formControlName="email"
+        
+        />
+       
+      </div>
+      <label for="username">Address</label>
+          <input type="text" class="form-control" name="address" formControlName="address"
+         />
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          formControlName="password"
+        />
+       
+      </div>
+      <label for="username">Confirm password</label>
+          <input type="text" class="form-control" name="confirmPassword" formControlName="confirmPassword"
+           />
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Submit</button>
+        <button class="btn btn-primary btn-block" (click)="clearFields()">Clear</button>    
+      </div>
+
+      <div class="alert alert-warning" *ngIf="isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+   
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+  </div>
+</div>
